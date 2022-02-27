@@ -1,0 +1,71 @@
+{
+    "env": {
+        "node": true,
+        // "es2021": true,
+        "jest": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "google"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaVersion": 2020
+    },
+    "ignorePatterns": [
+        "sandbox"
+    ],
+    "rules": {
+        "camelcase": "off",
+        "comma-dangle": [
+            "error",
+            "never"
+        ],
+        "eol-last": "off",
+        "guard-for-in": "off",
+        "indent": [
+            "error",
+            4,
+            {
+                "SwitchCase": 1
+            }
+        ],
+        "linebreak-style": "off",
+        "max-len": [
+            "error",
+            {
+                "code": 250
+            }
+        ],
+        "new-cap": "off",
+        "no-dupe-keys": "off",
+        "no-extend-native": "off",
+        "no-prototype-builtins": "off",
+        "no-undef": "off",
+        "no-unused-vars": "off",
+        "object-curly-spacing": [
+            "error",
+            "always"
+        ],
+        "prefer-const": "off",
+        "prefer-promise-reject-errors": "off",
+        "prefer-rest-params": "off",
+        "quotes": [
+            "error",
+            "double"
+        ],
+        "require-jsdoc": "off",
+        "space-before-function-paren": [
+            "error",
+            {
+                "anonymous": "always",
+                "named": "never",
+                "asyncArrow": "always"
+            }
+        ],
+        "valid-jsdoc": "off"
+    }
+}
