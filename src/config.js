@@ -4,42 +4,20 @@ const { NETWORK } = require(`${basePath}/constants/network.js`);
 
 const network = NETWORK.eth;
 
-// General metadata for Ethereum
+// General metadata
 const namePrefix = "Your Collection";
+const nameSymbol = "YC";
 const description = "Remember to replace this description";
 const baseUri = "ipfs://NewUriToReplace";
 
-const solanaMetadata = {
-    symbol: "YC",
-    seller_fee_basis_points: 1000, // Define how much % you want from secondary market sales 1000 = 10%
-    external_url: "https://www.youtube.com/c/hashlipsnft",
-    creators: [
-        {
-            address: "7fXNuer5sbZtaTEPhtJ5g5gNtuyRoKkvxdjEjEnPN4mC",
-            share: 100
-        }
-    ]
+const background = {
+    generate: true,
+    brightness: "80%",
+    static: false,
+    default: "#000000"
 };
 
-// If you have selected Solana then the collection starts from 0 automatically
-const layerConfigurations = [
-    {
-        growEditionSizeTo: 5,
-        layersOrder: [
-            { name: "Background" },
-            { name: "Eyeball" },
-            { name: "Eye color" },
-            { name: "Iris" },
-            { name: "Shine" },
-            { name: "Bottom lid" },
-            { name: "Top lid" }
-        ]
-    }
-];
-
-const shuffleLayerConfigurations = false;
-
-const debugLogs = false;
+const extraMetadata = {};
 
 const format = {
     width: 512,
@@ -54,35 +32,20 @@ const gif = {
     delay: 500
 };
 
-const text = {
-    only: false,
-    color: "#ffffff",
-    size: 20,
-    xGap: 40,
-    yGap: 40,
-    align: "left",
-    baseline: "top",
-    weight: "regular",
-    family: "Courier",
-    spacer: " => "
-};
-
-const pixelFormat = {
-    ratio: 2 / 128
-};
-
-const background = {
-    generate: true,
-    brightness: "80%",
-    static: false,
-    default: "#000000"
-};
-
-const extraMetadata = {};
-
-const rarityDelimiter = "#";
-
-const uniqueDnaTorrance = 10000;
+const layerConfigurations = [
+    {
+        growEditionSizeTo: 5,
+        layersOrder: [
+            { name: "Background" },
+            { name: "Eyeball" },
+            { name: "Eye color" },
+            { name: "Iris" },
+            { name: "Shine" },
+            { name: "Bottom lid" },
+            { name: "Top lid" }
+        ]
+    }
+];
 
 const preview = {
     thumbPerRow: 5,
@@ -100,23 +63,48 @@ const preview_gif = {
     imageName: "preview.gif"
 };
 
+const solanaMetadata = {
+    symbol: nameSymbol,
+    seller_fee_basis_points: 1000, // Define how much % you want from secondary market sales 1000 = 10%
+    external_url: "https://www.youtube.com/c/hashlipsnft",
+    creators: [
+        {
+            address: "Cg2BLuXnodAJTsbPFeJbnzpuTZiHSCA3K65kz7y9wtFR",
+            share: 100
+        }
+    ]
+};
+
+const text = {
+    only: false,
+    color: "#ffffff",
+    size: 20,
+    xGap: 40,
+    yGap: 40,
+    align: "left",
+    baseline: "top",
+    weight: "regular",
+    family: "Courier",
+    spacer: " => "
+};
+
 module.exports = {
-    format,
-    baseUri,
-    description,
     background,
-    uniqueDnaTorrance,
-    layerConfigurations,
-    rarityDelimiter,
-    preview,
-    shuffleLayerConfigurations,
-    debugLogs,
+    baseUri,
+    debugLogs: false,
+    description,
     extraMetadata,
-    pixelFormat,
-    text,
+    format,
+    gif,
+    layerConfigurations,
     namePrefix,
     network,
+    pixelFormat: { ratio: 2 / 128 },
+    preview,
+    preview_gif,
+    rarityDelimiter: "#",
+    shuffleLayerConfigurations: false,
     solanaMetadata,
-    gif,
-    preview_gif
+    text,
+    uniqueDnaTorrance: 1000
 };

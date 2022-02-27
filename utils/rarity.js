@@ -31,9 +31,9 @@ layerConfigurations.forEach((config) => {
             elementsForLayer.push(rarityDataElement);
         });
         let layerName =
-            layer.options?.["displayName"] != undefined
-                ? layer.options?.["displayName"]
-                : layer.name;
+            layer.options?.["displayName"] != undefined ?
+                layer.options?.["displayName"] :
+                layer.name;
         // don't include duplicate layers
         if (!rarityData.includes(layer.name)) {
             // add elements for each layer to chart
@@ -51,7 +51,7 @@ data.forEach((element) => {
 
         let rarityDataTraits = rarityData[traitType];
         rarityDataTraits.forEach((rarityDataTrait) => {
-            if (rarityDataTrait.trait == value) {
+            if (rarityDataTrait.trait === value) {
                 // keep track of occurrences
                 rarityDataTrait.occurrence++;
             }
@@ -61,7 +61,7 @@ data.forEach((element) => {
 
 // convert occurrences to occurence string
 for (var layer in rarityData) {
-    for (var attribute in rarityData[layer]) {
+    for (let attribute in rarityData[layer]) {
         // get chance
         let chance =
             ((rarityData[layer][attribute].occurrence / editionSize) * 100).toFixed(2);
@@ -75,7 +75,7 @@ for (var layer in rarityData) {
 // print out rarity data
 for (var layer in rarityData) {
     console.log(`Trait type: ${layer}`);
-    for (var trait in rarityData[layer]) {
+    for (let trait in rarityData[layer]) {
         console.log(rarityData[layer][trait]);
     }
     console.log();

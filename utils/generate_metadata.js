@@ -28,7 +28,7 @@ const getImages = (_dir) => {
             .readdirSync(_dir)
             .filter((item) => {
                 let extension = path.extname(`${_dir}${item}`);
-                if (extension == ".png" || extension == ".jpg") {
+                if (extension === ".png" || extension === ".jpg") {
                     return item;
                 }
             })
@@ -158,7 +158,7 @@ const writeMetaData = (_data) => {
 
 const startCreating = async () => {
     const images = getImages(inputDir);
-    if (images == null) {
+    if (images === null) {
         console.log("Please generate collection first.");
         return;
     }

@@ -15,7 +15,7 @@ let rawdata = fs.readFileSync(`${basePath}/build/json/_metadata.json`);
 let data = JSON.parse(rawdata);
 
 data.forEach((item) => {
-    if (network == NETWORK.sol) {
+    if (network === NETWORK.sol) {
         item.name = `${namePrefix} #${item.edition}`;
         item.description = description;
         item.creators = solanaMetadata.creators;
@@ -35,7 +35,7 @@ fs.writeFileSync(
     JSON.stringify(data, null, 2)
 );
 
-if (network == NETWORK.sol) {
+if (network === NETWORK.sol) {
     console.log(`Updated description for images to ===> ${description}`);
     console.log(`Updated name prefix for images to ===> ${namePrefix}`);
     console.log(

@@ -58,11 +58,11 @@ const saveProjectPreviewGIF = async (_data) => {
 
         await Promise.all(_data).then((renderObjectArray) => {
             // Determin the order of the Images before creating the gif
-            if (order == "ASC") {
+            if (order === "ASC") {
                 // Do nothing
-            } else if (order == "DESC") {
+            } else if (order === "DESC") {
                 renderObjectArray.reverse();
-            } else if (order == "MIXED") {
+            } else if (order === "MIXED") {
                 renderObjectArray = renderObjectArray.sort(() => Math.random() - 0.5);
             }
 
